@@ -9,8 +9,8 @@ class Price {
 
   private @Id int price_list;
   private int brand_id;
-  private LocalDateTime start_date;
-  private LocalDateTime end_date;
+  private LocalDateTime startDate;
+  private LocalDateTime endDate;
   private int product_id;
   private int priority;
   private float price;
@@ -23,8 +23,8 @@ class Price {
       int priority, float price, String iso) {
     this.price_list = price_list;
     this.brand_id = brand_id;
-    this.start_date = start_date;
-    this.end_date = end_date;
+    this.startDate = start_date;
+    this.endDate = end_date;
     this.product_id = product_id;
     this.priority = priority;
     this.price = price;
@@ -56,19 +56,19 @@ class Price {
   }
 
   public LocalDateTime getStart_date() {
-    return start_date;
+    return startDate;
   }
 
   public void setStart_date(LocalDateTime start_date) {
-    this.start_date = start_date;
+    this.startDate = start_date;
   }
 
   public LocalDateTime getEnd_date() {
-    return end_date;
+    return endDate;
   }
 
   public void setEnd_date(LocalDateTime end_date) {
-    this.end_date = end_date;
+    this.endDate = end_date;
   }
 
   public int getProduct_id() {
@@ -105,9 +105,9 @@ class Price {
 
   @Override
   public String toString() {
-    return "Price [brand_id=" + brand_id + ", end_date=" + end_date + ", iso=" + iso + ", price=" + price
+    return "Price [brand_id=" + brand_id + ", end_date=" + endDate + ", iso=" + iso + ", price=" + price
         + ", price_list=" + price_list + ", priority=" + priority + ", product_id=" + product_id + ", start_date="
-        + start_date + "]";
+        + startDate + "]";
   }
 
 }

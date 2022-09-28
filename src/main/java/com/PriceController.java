@@ -1,8 +1,11 @@
 package com;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,18 +45,15 @@ class PriceController {
   // .orElseThrow(() -> new PriceNotFoundException(id));
   // }
 
-  // http://localhost:8080/custom?product_id=35455&brand_id=1
+  // http://localhost:8080/custom?product_id=35455&brand_id=1&date=2020-06-14T10:00:00
 
   @RequestMapping(method = RequestMethod.GET, value = "/custom")
-  public String controllerMethod(@RequestParam Map<String, String> customQuery) {
-
-    // System.out.println("customQuery = datetime " +
-    // customQuery.containsKey("datetime"));
-    System.out.println("customQuery = product_id " + customQuery.containsKey("product_id"));
-    System.out.println("customQuery = brand_id " + customQuery.containsKey("brand_id"));
+  public Optional<List<Price>> controllerMethod(@RequestParam Map<String, String> customQuery) {
 
     System.out.println(customQuery.toString());
-    return customQuery.toString();
+    LocalDateTime date = LocalDateTime.parse(customQuery.get("date"));
+    // return customQuery.toString();
+    return repository.findTopByStartDateBeforeAndEndDateAfter(date, date, Sort.by(Sort.Direction.DESC, "priority"));
   }
 
   // @PutMapping("/prices/{id}")
