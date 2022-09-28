@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 interface PriceRepository extends JpaRepository<Price, Integer> {
 
-  Optional<Price> findById(Long id);
+  // Optional<Price> findById(Long id);
 
-  void deleteById(Long id);
+  // void deleteById(Long id);
 
 }

@@ -35,19 +35,20 @@ class PriceController {
 
   // Single item
 
-  @GetMapping("/prices/{id}")
-  Price one(@PathVariable Long id) {
+  // @GetMapping("/prices/{id}")
+  // Price one(@PathVariable Long id) {
 
-    return repository.findById(id)
-        .orElseThrow(() -> new PriceNotFoundException(id));
-  }
+  // return repository.findById(id)
+  // .orElseThrow(() -> new PriceNotFoundException(id));
+  // }
 
-  // http://localhost:2000/custom?brand=dell&limit=20&price=20000&sort=asc
+  // http://localhost:8080/custom?product_id=35455&brand_id=1
 
   @RequestMapping(method = RequestMethod.GET, value = "/custom")
   public String controllerMethod(@RequestParam Map<String, String> customQuery) {
 
-    System.out.println("customQuery = datetime " + customQuery.containsKey("datetime"));
+    // System.out.println("customQuery = datetime " +
+    // customQuery.containsKey("datetime"));
     System.out.println("customQuery = product_id " + customQuery.containsKey("product_id"));
     System.out.println("customQuery = brand_id " + customQuery.containsKey("brand_id"));
 
@@ -55,10 +56,10 @@ class PriceController {
     return customQuery.toString();
   }
 
-  @PutMapping("/prices/{id}")
+  // @PutMapping("/prices/{id}")
 
-  @DeleteMapping("/prices/{id}")
-  void deleteEmployee(@PathVariable Long id) {
-    repository.deleteById(id);
-  }
+  // @DeleteMapping("/prices/{id}")
+  // void deleteEmployee(@PathVariable Long id) {
+  // repository.deleteById(id);
+  // }
 }
